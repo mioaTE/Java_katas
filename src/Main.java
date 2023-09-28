@@ -41,5 +41,21 @@ public class Main {
             }
             return result;
         }
+
+//        Create a method called hasBad that takes in a string called str. Return true if "bad" appears starting at index 0 or 1 in str -- otherwise return false. str may be any length, including 0.
+//
+//        For example:
+//
+//        hasBad("badxx") → true
+//        hasBad("xbadxx") → true
+//        hasBad("xxbadxx") → false
+
+        public boolean hasBad(String str) {
+            if (str.length() >= 3 && (str.substring(0, 3).equals("bad") ||
+                    (str.length() >= 4 && str.substring(1, 4).equals("bad")))) {
+                return true;
+            }
+            return false;
+        }
     }
 }
