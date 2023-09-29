@@ -57,5 +57,30 @@ public class Main {
             }
             return false;
         }
+
+//        Create a method called frontTimes that takes in a string str and an integer n. The front of str is the first 3 characters, or whatever is there if str is less than length 3. Return a string made up of n copies of the front.
+//
+//        For example:
+//
+//        frontTimes("Chocolate", 2) → "ChoCho"
+//        frontTimes("Chocolate", 3) → "ChoChoCho"
+//        frontTimes("Ab", 3) → "AbAbAb"
+        public String frontTimes(String str, int n){
+            String result = "";
+            if(str.length() >= 3){
+                for(int i = 0; i < n; i++){
+                    result += str.substring(0, 3);
+                }
+            }else if(str.length() == 2){
+                for(int i = 0; i < n; i++){
+                    result += str.substring(0, 2);
+                }
+            }else{
+                for(int i = 0; i < n; i++){
+                    result += str.substring(0, 1);
+                }
+            }
+            return result;
+        }
     }
 }
