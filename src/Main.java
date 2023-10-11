@@ -82,5 +82,23 @@ public class Main {
             }
             return result;
         }
+//        Create a method called reverseString that takes in a string called str.
+//        Return a string containing str in reverse order. str may be empty, but not null.
+//
+//        For example:
+//
+//        reverseString(“Hello!”) → “!olleH”
+//        reverseString(“Kata”) → “ataK”
+//        reverseString(“”) → “”
+        public String reverseString(String str){
+            String result = "";
+            if(str.length() == 0){
+                return result;
+            }
+            for(int i = str.length()-1; i >= 0; i--){
+                result += str.charAt(i);
+            }
+            return result;
+        }
     }
 }
