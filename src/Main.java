@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -101,4 +104,19 @@ public class Main {
             return result;
         }
     }
+//    Create a method called reverseList that takes in a List of strings called strings. Return a new List in reverse order of the original.
+//
+//    For example:
+//
+//    reverseList( ["purple", "green", "blue", "yellow", "green" ])  →  ["green", "yellow", "blue", green", "purple" ]
+//    reverseList( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"} ) →
+        public List<String> reverseList(List<String> strings){
+            List<String> result = new ArrayList<>();
+            for(int i = strings.size() -1; i >= 0; i--){
+                result.add(strings.get(i));
+            }
+
+            return result;
+        }
+
 }
