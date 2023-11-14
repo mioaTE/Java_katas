@@ -133,4 +133,77 @@ public class Main {
             return result;
         }
 
+//    Create a method called findLargest that takes in a List of integers called nums. Return the largest value in nums.
+//
+//    For example:
+//
+//    findLargest( [11, 200, 43, 84, 9917, 4321, 1, 33333, 8997] ) →  33333
+//    findLargest( [987, 1234, 9381, 731, 43718, 8932] ) →  43718
+//    findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) →  64362.
+
+    public int findLargest(List<Integer> nums){
+        int result = 0;
+        for(int num: nums){
+            if(num> result){
+                result = num;
+            }
+        }
+        return result;
+    }
+
+//    Create a method called distinctValues that takes in a List of strings called strings. Return a List that contains the distinct values in strings.
+//
+//    For example:
+//
+//    distinctValues( ["red", "yellow", "green", "yellow", "blue", "green", "purple"] ) →  ["red", "yellow", "green", "blue", "purple"]
+//    distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) →  ["jingle", "bells", "all", "the", "way"]
+    public List<String> distinctValues(List<String> strings){
+            List<String> result = new ArrayList<>();
+            for(String string: strings){
+                if(!result.contains(string)){
+                    result.add(string);
+                }
+            }
+            return result;
+    }
+//    Create a method called array2List that takes in a string array called strings. Return a List containing the elements of strings in the same order. Avoid using a standard library method that does the conversion for you. For example:
+//
+//    array2List( {"Apple", "Orange", "Banana"} ) →   ["Apple", "Orange", "Banana"]
+//    array2List( {"Red", "Orange", "Yellow"} ) →   ["Red", "Orange", "Yellow"]
+//    array2List( {"Left", "Right", "Forward", "Back"} ) →   ["Left", "Right", "Forward", "Back"]
+    public List<String> array2List(String[] strings){
+            List<String> result = new ArrayList<>();
+            for(String string: strings){
+                result.add(string);
+            }
+            return result;
+    }
+//    Create a method called arrayInt2ListDouble that takes in an integer array called ints. Divide each value in ints by 2, and return them in a List of Doubles.
+//
+//    For example:
+//
+//    arrayInt2ListDouble( {5, 8, 11, 200, 97} ) →  [2.5, 4.0, 5.5, 100, 48.5]
+//    arrayInt2ListDouble( {745, 23, 44, 9017, 6} ) →  [372.5, 11.5, 22, 4508.5, 3]
+//    arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) →  [42, 49.5, 1642.5, 6.5, 438.5]
+    public List<Double> arrayInt2ListDouble(int[] ints){
+            List<Double> result = new ArrayList<>();
+            for(int num: ints){
+                result.add(num/2.0);
+            }
+            return result;
+
+    }
+//    Create a method called makeOutWord that takes in two strings, outword and word. Return a new string where the word is in the middle of the outword string. You can assume the length of outword is even.
+//
+//    For example:
+//
+//    makeOutWord("<<>>", "Yay") → "<<Yay>>"
+//    makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
+//    makeOutWord("[[]]", "word") → "[[word]]"
+    public String makeOutWord(String outword, String word){
+            String result = "";
+            int length = outword.length()/2;
+            result = outword.substring(0,length) + word + outword.substring(length);
+            return result;
+    }
 }
