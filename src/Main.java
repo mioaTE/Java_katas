@@ -206,4 +206,123 @@ public class Main {
             result = outword.substring(0,length) + word + outword.substring(length);
             return result;
     }
+//    Create a method called makeMiddle that takes in an integer array nums. Return a new array length 2 containing the middle two elements from nums. You can assume the length of nums is even and 2 or more.
+//
+//    For example:makeMiddle({1, 2, 3, 4}) → {2, 3}
+//    makeMiddle({7, 1, 2, 3, 4, 9}) → {2, 3}
+//    makeMiddle({1, 2}) → {1, 2}
+    public int[] makeMiddle(int[] nums){
+            if(nums.length == 2){
+                return new int[]{nums[0], nums[1]};
+            }
+            int middle = nums.length/2;
+            return new int[]{nums[middle-1], nums[middle]};
+    }
+//    Create a method called blackjack that takes in two integers, a and b. Return whichever value is nearest to 21 without going over. Return 0 if they both go over.
+//
+//    For example:
+//
+//    blackjack(19, 21) → 21
+//    blackjack(21, 19) → 21
+//    blackjack(19, 22) → 19
+    public int blackjack(int a, int b){
+            if(a > 21 && b > 21){
+                return 0;
+            }
+            int aDiff = 21-a;
+            int bDiff = 21-b;
+            if(aDiff <0){
+                return b;
+            } else if (bDiff < 0) {
+                return a;
+            }
+            if(aDiff < bDiff){
+                   return a;
+                }
+            return b;
+    }
+//    Create a method called fizzBuzz with no parameters.
+//    Return an array of 100 strings representing the values 1-100.
+//    If the value is a multiple of both 3 and 5, put “FizzBuzz” in the array.
+//    If the value is a multiple of 3 (but not 5), put “Fizz” in the array.
+//    If the value is a multiple of 5 (but not 3), put “Buzz” in the array.
+//    For all other values, put a string containing the value in the array.
+//
+//    For example:
+//
+//    fizzBuzz() → {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", ...}
+    public String[] fizzBuzz(){
+            String[] result = new String[100];
+            for(int i = 1; i < 101; i++){
+                if(i%15== 0){
+                    result[i-1] = "FizzBuzz";
+                } else if (i%3 == 0) {
+                    result[i-1] = "Fizz";
+                } else if (i%5 == 0) {
+                    result[i-1] = "Buzz";
+                }else{
+                    result[i-1] = Integer.toString(i);
+                }
+            }
+            return result;
+    }
+//    Create a method called fibonacci with no parameters.
+//    In a Fibonacci sequence, every number after the first two is the sum of the two preceding ones.
+//    Return an array of integers containing the Fibonacci sequence of 0, 1, 1, 2, 3,
+//    and so on for the values less than 2000.
+//
+//    For example:
+//
+//    fibonacci() → {1, 1, 2, 3, 5, 8, 13, ... 987, 1597}
+    public int[] fibonacci(){
+            List<Integer> newList = new ArrayList<>();
+            newList.add(1);
+            newList.add(1);
+
+            for(int i = 2; i< 2000; i++){
+                newList.add(newList.get(i-1) + newList.get(i-2));
+                if(newList.get(i) >= 2000){
+                    break;
+                }
+            }
+            int[] result = new int[newList.size()-1]; //last element is >= 2000
+            for(int i = 0; i < result.length; i++){
+                result[i] = newList.get(i);
+            }
+            return result;
+    }
+//    Create a method called primeFactors that takes in an integer n.
+//    Return an integer array of the [prime factors] of n(https://www.mathsisfun.com/definitions/prime-factor.html).
+//    Prime factors are the numbers you can multiply to get n that you can't break down into any smaller factors.
+//    You can assume the input is greater than 1.
+//
+//            For example:
+//
+//            primeFactors(6) → {2, 3}
+//    primeFactors(28) → {2, 2, 7}
+//    primeFactors(667) → {23, 29}
+
+    public int[] primeFactors(int n){
+        ArrayList<Integer> primeFactorsList = new ArrayList<>();
+        int divisor = 2;
+        while (n > 1) {
+            // Check if the number is divisible by the current divisor
+            if (n % divisor == 0) {
+                // If divisible, add the divisor to the list of prime factors
+                primeFactorsList.add(divisor);
+
+                // Divide the number by the divisor
+                n /= divisor;
+            } else {
+                // If not divisible, move on to the next prime number
+                divisor++;
+            }
+        }
+        int[] result = new int[primeFactorsList.size()];
+        for(int i = 0; i < result.length; i++){
+            result[i] = primeFactorsList.get(i);
+        }
+        return result;
+    }
+
 }
